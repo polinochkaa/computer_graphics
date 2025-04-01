@@ -1,0 +1,248 @@
+# установка камеры в точку (20,10,10) направленной в точку (20,10,0)
+# с направлением вверх (0,1,0)
+camera 20 10 10 20 10 0 0 1 0
+# установка окна с углом обзора 90 градусов
+# с соотношением сторон 2:1 на расстоянии 5 от наблюдателя (от камеры)
+# расстояние до горизонта - 20
+screen 90 2 0.3 200
+
+# ПЕРВАЯ ФИГУРА (пирамида)
+
+# ПЕРВЫЙ ЭКЗЕМПЛЯР
+camera 0 0 -4 0 0 0 0 1 0
+screen 80 1 0.3 200
+model 0.5 0.433 0.4082 1 0.866 0.8165
+
+# золотая пирамида
+ambient 0.24725 0.1995 0.0745
+diffuse 0.75164 0.60648 0.22648
+specular 0.628281 0.555802 0.366065
+shininess 51.2
+
+# нижний треугольник
+mesh 3 1
+0.0 0.0 0.0 	0 0 -1 # 0 0 -0.866
+1.0 0.0 0.0		0 0 -1 # 0 0 -0.866
+0.5 0.866 0.0	0 0 -1 # 0 0 -0.866
+0 1 2
+
+mesh 3 1
+0.0 0.0 0.0		0 -0.942801 0.333358 # 0 -0.8165 0.2887
+0.5 0.2887 0.8165 0 -0.942801 0.333358 # 0 -0.8165 0.2887
+1.0 0.0 0.0		0 -0.942801 0.333358 # 0 -0.8165 0.2887
+0 1 2
+
+mesh 3 1
+0.0 0.0 0.0		-0.942833 0.544361 0.384886 # -0.707089 0.40825 0.28865
+0.5 0.2887 0.8165 -0.942833 0.544361 0.384886 # -0.707089 0.40825 0.28865
+0.5 0.866 0.0 	-0.942833 0.544361 0.384886 # -0.707089 0.40825 0.28865
+0 1 2
+
+mesh 3 1
+0.5 0.2887 0.8165	0.942833 0.544361 0.384886 # 0.707089 0.40825 0.28865
+1.0 0.0 0.0		0.942833 0.544361 0.384886 # 0.707089 0.40825 0.28865
+0.5 0.866 0.0	0.942833 0.544361 0.384886 # 0.707089 0.40825 0.28865
+0 1 2
+
+pushTransform
+scale 0.75
+
+
+
+pushTransform 
+translate 5 1.5 3
+figure
+translate 12 0 3
+figure
+popTransform
+pushTransform 
+rotate 90 0 0 1
+rotate 90 1 1 0
+translate 7 1.5 1
+figure
+translate 6 0 1
+figure
+popTransform
+pushTransform 
+rotate -90 0 0 1
+rotate -90 1 1 0
+translate 9 1.5 6
+figure
+translate 6 0 -2
+figure
+popTransform
+pushTransform 
+rotate 180 0 0 1
+rotate 180 1 1 0
+translate 11 1.5 0
+figure
+popTransform
+
+
+
+pushTransform 
+translate 4 0 8
+rotate 60 0 0 1
+rotate 60 1 1 0
+translate 1 1 -4
+figure
+popTransform
+pushTransform 
+rotate 90 0 0 1
+rotate 90 1 1 0
+translate 6 0 1
+rotate 60 0 0 1
+rotate 60 1 1 0
+translate 1 1 1
+figure
+popTransform
+pushTransform 
+rotate -90 0 0 1
+rotate -90 1 1 0
+translate 8 0 3
+rotate 60 0 0 1
+rotate 60 1 1 0
+translate 1 1 3
+figure
+popTransform
+
+popTransform
+
+
+
+# ВТОРАЯ ФИГУРА (куб)
+model 0 0 0 2 2 2
+# рубиновый куб
+ambient 0.1745 0.01175 0.01175
+diffuse 0.61424 0.04136 0.04136
+specular 0.727811 0.626959 0.626959
+shininess 76.8
+mesh 4 2
+-0.5 -0.5 -0.5 0.0 -1.0 0.0 # нормаль направлена вниз
+-0.5 -0.5 0.5 0.0 -1.0 0.0
+0.5 -0.5 0.5 0.0 -1.0 0.0
+0.5 -0.5 -0.5 0.0 -1.0 0.0
+0 1 2 # первый треугольник нижней грани
+0 2 3 # второй треугольник нижней грани
+# верхняя грань
+mesh 4 2
+-0.5 0.5 -0.5 0.0 1.0 0.0 # нормаль направлена вверх
+-0.5 0.5 0.5 0.0 1.0 0.0
+0.5 0.5 0.5 0.0 1.0 0.0
+0.5 0.5 -0.5 0.0 1.0 0.0
+0 1 3 # первый треугольник верхней грани
+1 2 3 # второй треугольник верхней грани
+# левая грань
+mesh 4 2
+-0.5 -0.5 -0.5 -1.0 0.0 0.0 # нормаль направлена влево
+-0.5 -0.5 0.5 -1.0 0.0 0.0
+-0.5 0.5 -0.5 -1.0 0.0 0.0
+-0.5 0.5 0.5 -1.0 0.0 0.0
+0 1 2 # первый треугольник левой грани
+1 2 3 # второй треугольник левой грани
+# правая грань
+mesh 4 2
+0.5 -0.5 0.5 1.0 0.0 0.0 # нормаль направлена вправо
+0.5 -0.5 -0.5 1.0 0.0 0.0
+0.5 0.5 0.5 1.0 0.0 0.0
+0.5 0.5 -0.5 1.0 0.0 0.0
+2 0 1 # первый треугольник правой грани
+2 1 3 # второй треугольник правой грани
+# передняя грань
+mesh 4 2
+-0.5 -0.5 0.5 0.0 0.0 1.0 # нормаль направлена на нас
+0.5 -0.5 0.5 0.0 0.0 1.0
+-0.5 0.5 0.5 0.0 0.0 1.0
+0.5 0.5 0.5 0.0 0.0 1.0
+0 2 3 # первый треугольник передней грани
+0 3 1 # второй треугольник передней грани
+# задняя грань
+mesh 4 2
+-0.5 -0.5 -0.5 0.0 0.0 -1.0 # нормаль направлена от нас
+0.5 -0.5 -0.5 0.0 0.0 -1.0
+-0.5 0.5 -0.5 0.0 0.0 -1.0
+0.5 0.5 -0.5 0.0 0.0 -1.0
+1 3 2 # первый треугольник задней грани
+1 2 0 # второй треугольник задней грани
+
+pushTransform
+scale 0.5
+
+pushTransform 
+translate 4 0 4
+rotate 30 0 0 1
+rotate 30 1 1 0
+translate 1 1 1
+figure
+popTransform
+pushTransform
+rotate 90 0 0 1
+rotate 90 1 1 0
+translate 6 0 2
+rotate 30 0 0 1
+rotate 30 1 1 0
+translate 1 1 -2
+figure
+popTransform
+pushTransform
+rotate -90 0 0 1
+rotate -90 1 1 0
+translate 8 0 2
+rotate 30 0 0 1
+rotate 30 1 1 0
+translate 1 1 2
+figure
+popTransform
+pushTransform
+rotate 180 0 0 1
+rotate 180 1 1 0
+translate 10 0 3
+rotate 30 0 0 1
+rotate 30 1 1 0
+translate 1 1 1
+figure
+popTransform
+pushTransform
+rotate 90 0 0 1
+rotate 90 1 1 0
+translate 12 0 0
+rotate 30 0 0 1
+rotate 30 1 1 0
+translate 1 1 0
+figure
+popTransform
+pushTransform
+rotate -90 0 0 1
+rotate -90 1 1 0
+translate 14 0 3
+rotate 30 0 0 1
+rotate 30 1 1 0
+translate 1 1 2
+figure
+popTransform
+pushTransform
+translate 16 0 -2
+rotate 30 0 0 1
+rotate 30 1 1 0
+translate 1 1 -4
+figure
+popTransform
+
+pushTransform 
+rotate 90 0 0 1
+rotate 90 1 1 0
+translate 1 5 0
+figure
+popTransform
+pushTransform 
+rotate 180 0 0 1
+rotate 180 1 1 0
+translate 1 7 6
+figure
+popTransform
+pushTransform 
+translate 1 9 2
+figure
+popTransform
+
+popTransform
